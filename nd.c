@@ -1,6 +1,9 @@
 #include<stdlib.h>
 #include<stdio.h>
-#include <string.h>
+#include<string.h>
+#include<unistd.h>
+
+/*Inspired by AEGIS|DomainOS's "named directory" feature*/
 
 //#include<stdarg.h>
 
@@ -16,7 +19,7 @@ int delbuff (void)
 	
 }
 
-int main(char *argsv)
+int main(int argc, char const *argv[])
 {
 	char * directory ="~";
 	//^Start the directory varible
