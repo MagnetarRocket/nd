@@ -31,23 +31,23 @@ int main(int argc, char const *argv[])
 		return 0;
 	}
 	//just print loaded directory location
-	else if (argsv == 's')
+	else if (argsv == "-s")
 	{
 		printf("%s", directory);
 		return 0;
 	}
 
 	//purge clipboard from memory
-	else if (argsv == 'd')
+	else if (argsv == "-d")
 	{
 		/* code */
 	}
 	
 
 	//given user input
-	else if (argsv > 1)
+	else if (argsv[] > 1)
 	{
-		directory = argsv;
+		directory = argsv[];
 	}
 	
 	//if recomended spot does not exist
@@ -64,6 +64,6 @@ int main(int argc, char const *argv[])
 		return 1;
 	}
 	
-	
+	return 0;
 	//char * directory[]="";
 }
