@@ -19,51 +19,68 @@ int delbuff (void)
 	
 }
 
-int main(int argc, char const *argv[])
+int main(int argc, char const *argv[])//if a valid directory was inputted
 {
-	char * directory ="~";
+	char* directory ="/tmp/nd-location";
 	//^Start the directory varible
-	
-	//see if the recomended spot exists
-	if (directory != NULL)
-	{
-		/* code */
-		return 0;
-	}
-	//just print loaded directory location
-	else if (argsv == "-s")
-	{
-		printf("%s", directory);
-		return 0;
-	}
 
-	//purge clipboard from memory
-	else if (argsv == "-d")
-	{
-		/* code */
-	}
+	FILE* locFile;
 	
 
-	//given user input
-	else if (argsv[] > 1)
+	if (strlen(argv[1]>0) )//
 	{
-		directory = argsv[];
+			/* code */
+		
+		//see if the recomended spot exists
+		if (directory != NULL)
+		{
+
+			/* code */
+			return 0;
+		}
+		//just print loaded directory location
+		else if (argv[1] == "-s")
+		{
+			printf("%s", directory);
+			return 0;
+		}
+
+		//purge clipboard from memory
+		else if (argv[1] == "-d")
+		{
+			/* code */
+		}
+		
+
+		//given user input
+		else if (argv[1] > 1)
+		{
+			directory = argv[1];
+		}
+		
+		//if recomended spot does not exist
+		else if ( directory == NULL)
+		{
+			/* code */
+			printf("Directory may have been moved or deleted, reseting to your home path.");
+			char * directory[]="";
+			return 1;
+		}
+		else //in case of error
+		{
+			/* code */
+			return 1;
+		}
+		fclose();
 	}
-	
-	//if recomended spot does not exist
-	else if ( directory == NULL)
+	else //no directory was inputted
 	{
-		/* code */
-		printf("Directory may have been moved or deleted, reseting to your home path.");
-		char * directory[]="";
-		return 1;
+		if (/* condition */)
+		{
+			/* code */
+		}
+		
 	}
-	else //in case of error
-	{
-		/* code */
-		return 1;
-	}
-	
 	return 0;
 	//char * directory[]="";
 }
