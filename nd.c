@@ -9,16 +9,6 @@
 
 char default_directory = '~';
 
-int startbuff (void)
-{
-
-}
-
-int delbuff (void)
-{
-	
-}
-
 int main(int argc, char const *argv[])//if a valid directory was inputted
 {
 	char* directory ="/tmp/nd-location";
@@ -29,7 +19,6 @@ int main(int argc, char const *argv[])//if a valid directory was inputted
 
 	if (strlen(argv[1]>0) )//
 	{
-			/* code */
 		
 		//see if the recomended spot exists
 		if (directory != NULL)
@@ -39,48 +28,28 @@ int main(int argc, char const *argv[])//if a valid directory was inputted
 			return 0;
 		}
 		//just print loaded directory location
-		else if (argv[1] == "-s")
+		else if (strcmp(argv[1], "-s") )
 		{
 			printf("%s", directory);
 			return 0;
 		}
-
-		//purge clipboard from memory
-		else if (argv[1] == "-d")
-		{
-			/* code */
-		}
 		
-
 		//given user input
-		else if (argv[1] > 1)
+		else
 		{
 			directory = argv[1];
 		}
 		
-		//if recomended spot does not exist
-		else if ( directory == NULL)
-		{
-			/* code */
-			printf("Directory may have been moved or deleted, reseting to your home path.");
-			char * directory[]="";
-			return 1;
-		}
-		else //in case of error
-		{
-			/* code */
-			return 1;
-		}
-		fclose();
 	}
 	else //no directory was inputted
 	{
-		if (/* condition */)
+		if ()
 		{
 			/* code */
 		}
 		
 	}
+	fclose(locFile);
 	return 0;
 	//char * directory[]="";
 }
