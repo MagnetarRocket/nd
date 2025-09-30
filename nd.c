@@ -14,42 +14,58 @@ int main(int argc, char const *argv[])//if a valid directory was inputted
 	char* directory ="/tmp/nd-location";
 	//^Start the directory varible
 
-	FILE* locFile;
-	
-
-	if (strlen(argv[1]>0) )//
+	FILE* locFile = fopen(directory, "wb+");
+	//see if the recomended spot exists
+	if ()
 	{
-		
-		//see if the recomended spot exists
-		if (directory != NULL)
-		{
 
-			/* code */
-			return 0;
-		}
+		return 0;
+	}
+
+	if ( strlen(argv[1]>0) )//
+	{
+
 		//just print loaded directory location
-		else if (strcmp(argv[1], "-s") )
+		if (strcmp(argv[1], "s") )
 		{
+			locFile = fopen(directory,"r");
 			printf("%s", directory);
 			return 0;
+		}
+
+		//overide with home default
+		else if (strcmp(argv[1], "~") )
+		{
+
 		}
 		
 		//given user input
 		else
 		{
+			if (access() )
+			{
+				return 0;
+			}
+			else
+			{
+				return 1;
+			}
+			
 			directory = argv[1];
+			//locFile = fopen(directory,"rw");
+			fprintf(locFile, argv[1]);
 		}
 		
 	}
 	else //no directory was inputted
 	{
-		if ()
+		//locFile = fopen(directory,"r");
+
+		if(locFile != NULL)
 		{
-			/* code */
+			chdir(locFile);
 		}
-		
 	}
 	fclose(locFile);
 	return 0;
-	//char * directory[]="";
 }
