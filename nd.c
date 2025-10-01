@@ -15,7 +15,8 @@ char* directory ="/tmp/nd-location";
 int main(int argc, char const *argv[])//if a valid directory was inputted
 {
 	char* switchDir;
-
+	char* readBuff;
+	char* tmpStr;
 
 	FILE* locFile = fopen(directory, "wb+");
 	DIR* locDir;
@@ -32,6 +33,7 @@ int main(int argc, char const *argv[])//if a valid directory was inputted
 		//just print loaded directory location
 		if (strcmp(argv[1], "-s") )
 		{
+			tmpStr = locFile;
 			printf("%s", locFile);
 			return 0;
 		}
@@ -39,7 +41,8 @@ int main(int argc, char const *argv[])//if a valid directory was inputted
 		//overide with home default
 		else if (strcmp(argv[1], "-c") )
 		{
-			fprintf(directory,default_directory);
+			tmpStr = 
+			fprintf(directory, default_directory);
 		}
 		
 		//given user input
@@ -51,7 +54,6 @@ int main(int argc, char const *argv[])//if a valid directory was inputted
 				directory = argv[1];
 				//locFile = fopen(directory,"rw");
 				fprintf(locFile, argv[1]);
-				//chdir(locDir);
 			}
 			else
 			{
