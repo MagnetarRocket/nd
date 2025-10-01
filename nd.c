@@ -27,7 +27,7 @@ int main(int argc, char const *argv[])//if a valid directory was inputted
 		return 1;
 	}
 
-	if ( strlen(argv[1]>0) )//if anything was inputed after "nd"
+	if ( strlen(argv[1])>0 )//if anything was inputed after "nd"
 	{
 		//just print loaded directory location
 		if (strcmp(argv[1], "-s") )
