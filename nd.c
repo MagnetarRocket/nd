@@ -43,7 +43,7 @@ int main(int argc, char const *argv[])//if a valid directory was inputted
 		else if (strcmp(argv[1], "-c") )
 		{
 			tmpStr = strdup(directory);
-			fprintf(tmpStr, "%c", default_directory);
+			fprintf(locFile, "%c", default_directory);
 		}
 		
 		//given user input
@@ -65,14 +65,20 @@ int main(int argc, char const *argv[])//if a valid directory was inputted
 		}
 		
 	}
+	else if (argc > 1)
+	{
+		printf("too many arguements.");
+		return 1;
+	}
 	else //no directory was inputted
 	{
 		//locFile = fopen(directory,"r");
 
 		if(locFile != NULL)
 		{
-			tmpStr = strdup(locFile);
-			chdir(tmpStr);
+			fgets(readBuff,255,locFile);
+			//tmpStr = strdup(locFile);
+			chdir(readBuff);
 		}
 	}
 	fclose(locFile);
