@@ -2,58 +2,63 @@
 #include<stdio.h>
 #include<string.h>
 #include<unistd.h>
+#include<dirent.h>
 
 /*Inspired by AEGIS|DomainOS's "named directory" feature*/
 
 //#include<stdarg.h>
 
 char default_directory = '~';
+char* directory ="/tmp/nd-location";
+	//^Start the directories varible
 
 int main(int argc, char const *argv[])//if a valid directory was inputted
 {
-	char* directory ="/tmp/nd-location";
-	//^Start the directory varible
+	char* switchDir;
+
 
 	FILE* locFile = fopen(directory, "wb+");
+	DIR* locDir;
 	//see if the recomended spot exists
-	if ()
+	if (locFile == NULL)
 	{
-
-		return 0;
+		printf("This file location could not be acessed…");
+		fclose(locFile);
+		return 1;
 	}
 
-	if ( strlen(argv[1]>0) )//
+	if ( strlen(argv[1]>0) )//if anything was inputed after "nd"
 	{
-
 		//just print loaded directory location
-		if (strcmp(argv[1], "s") )
+		if (strcmp(argv[1], "-s") )
 		{
-			locFile = fopen(directory,"r");
-			printf("%s", directory);
+			printf("%s", locFile);
 			return 0;
 		}
 
 		//overide with home default
-		else if (strcmp(argv[1], "~") )
+		else if (strcmp(argv[1], "-c") )
 		{
-
+			fprintf(directory,default_directory);
 		}
 		
 		//given user input
 		else
 		{
-			if (access() )
+			locDir = opendir(argv[1]);
+			if (locDir)
 			{
-				return 0;
+				directory = argv[1];
+				//locFile = fopen(directory,"rw");
+				fprintf(locFile, argv[1]);
+				//chdir(locDir);
 			}
 			else
 			{
+				printf("Invalid directory");
+				fclose(locFile);
 				return 1;
 			}
-			
-			directory = argv[1];
-			//locFile = fopen(directory,"rw");
-			fprintf(locFile, argv[1]);
 		}
 		
 	}
@@ -67,5 +72,6 @@ int main(int argc, char const *argv[])//if a valid directory was inputted
 		}
 	}
 	fclose(locFile);
+	
 	return 0;
 }
