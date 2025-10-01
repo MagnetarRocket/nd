@@ -10,7 +10,7 @@
 
 char default_directory = '~';
 char* directory ="/tmp/nd-location";
-	//^Start the directories varible
+	//^Start the default directories varible
 
 int main(int argc, char const *argv[])//if a valid directory was inputted
 {
@@ -20,6 +20,7 @@ int main(int argc, char const *argv[])//if a valid directory was inputted
 
 	FILE* locFile = fopen(directory, "wb+");
 	DIR* locDir;
+
 	//see if the recomended spot exists
 	if (locFile == NULL)
 	{
@@ -33,16 +34,16 @@ int main(int argc, char const *argv[])//if a valid directory was inputted
 		//just print loaded directory location
 		if (strcmp(argv[1], "-s") )
 		{
-			tmpStr = locFile;
-			printf("%s", locFile);
+			//tmpStr = strdup(locFile);
+			printf("%p", locFile);
 			return 0;
 		}
 
 		//overide with home default
 		else if (strcmp(argv[1], "-c") )
 		{
-			tmpStr = 
-			fprintf(directory, default_directory);
+			tmpStr = strdup(directory);
+			fprintf(tmpStr, "%c", default_directory);
 		}
 		
 		//given user input
@@ -51,9 +52,9 @@ int main(int argc, char const *argv[])//if a valid directory was inputted
 			locDir = opendir(argv[1]);
 			if (locDir)
 			{
-				directory = argv[1];
+				tmpStr = strdup(argv[1]);
 				//locFile = fopen(directory,"rw");
-				fprintf(locFile, argv[1]);
+				fprintf(locFile, "%s", argv[1]);
 			}
 			else
 			{
@@ -70,7 +71,8 @@ int main(int argc, char const *argv[])//if a valid directory was inputted
 
 		if(locFile != NULL)
 		{
-			chdir(locFile);
+			tmpStr = strdup(locFile);
+			chdir(tmpStr);
 		}
 	}
 	fclose(locFile);
