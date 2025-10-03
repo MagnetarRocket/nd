@@ -18,7 +18,7 @@ int main(int argc, char const *argv[])//if a valid directory was inputted
 	char* readBuff;
 	char* tmpStr;
 
-	FILE* locFile = fopen(directory, "wb+");
+	FILE* locFile = fopen(directory, "r");
 	DIR* locDir;
 
 	//see if the recomended spot exists
@@ -34,8 +34,8 @@ int main(int argc, char const *argv[])//if a valid directory was inputted
 		//just print loaded directory location
 		if (strcmp(argv[1], "-s") )
 		{
-			//tmpStr = strdup(locFile);
-			printf("%p", locFile);
+			fgets(readBuff,225,locFile);
+			printf("%p", readBuff);
 			return 0;
 		}
 
@@ -49,6 +49,7 @@ int main(int argc, char const *argv[])//if a valid directory was inputted
 		//given user input
 		else
 		{
+			
 			locDir = opendir(argv[1]);
 			if (locDir)
 			{
@@ -76,7 +77,7 @@ int main(int argc, char const *argv[])//if a valid directory was inputted
 
 		if(locFile != NULL)
 		{
-			fgets(readBuff,255,locFile);
+			fgets(readBuff,225,locFile);
 			//tmpStr = strdup(locFile);
 			chdir(readBuff);
 		}

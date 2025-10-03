@@ -1,0 +1,1 @@
+cc nd.c -o nd
