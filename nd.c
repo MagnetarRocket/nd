@@ -61,7 +61,7 @@ int main(int argc, char const *argv[])//if a valid directory was inputted
 			{
 				printf("Invalid directory");
 				fclose(locFile);
-				return 1;
+				//return 1;
 			}
 		}
 		
