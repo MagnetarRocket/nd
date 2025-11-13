@@ -25,7 +25,6 @@ int main(int argc, char const *argv[])//if a valid directory was inputted
 	if (locFile == NULL)
 	{
 		printf("This file location could not be acessed…");
-		fclose(locFile);
 		return 1;
 	}
 
