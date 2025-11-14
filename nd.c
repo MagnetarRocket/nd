@@ -18,9 +18,10 @@ int main(int argc, char const *argv[])//if a valid directory was inputted
 	char* readBuff;
 	char* tmpStr;
 
-	FILE* locFile = fopen(directory, "r");
-	DIR* locDir;
+	FILE *locFile;
+	DIR *locDir;
 
+	fopen(directory, "rb+");
 	//see if the recomended spot exists
 	if (locFile == NULL)
 	{
@@ -72,7 +73,7 @@ int main(int argc, char const *argv[])//if a valid directory was inputted
 	}
 	else //no directory was inputted
 	{
-		//locFile = fopen(directory,"r");
+		locFile = fopen(directory,"r");
 
 		if(locFile != NULL)
 		{
