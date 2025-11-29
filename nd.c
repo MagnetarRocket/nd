@@ -14,14 +14,23 @@ char* directory ="/tmp/nd-location";
 
 int main(int argc, char const *argv[])//if a valid directory was inputted
 {
+
 	char* switchDir;
 	char* readBuff;
 	char* tmpStr;
 
-	FILE *locFile;
+	struct dirent *;
+
+	
+	FILE *locFile = fopen(directory, "rb+");;
 	DIR *locDir;
 
-	fopen(directory, "rb+");
+	//Arguement check.
+	if (argc > 1)
+	{
+		printf("too many arguements.");
+		return 1;
+	}
 	//see if the recomended spot exists
 	if (locFile == NULL)
 	{
@@ -66,11 +75,7 @@ int main(int argc, char const *argv[])//if a valid directory was inputted
 		}
 		
 	}
-	else if (argc > 1)
-	{
-		printf("too many arguements.");
-		return 1;
-	}
+	
 	else //no directory was inputted
 	{
 		locFile = fopen(directory,"r");
