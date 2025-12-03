@@ -19,10 +19,10 @@ int main(int argc, char const *argv[])//if a valid directory was inputted
 	char* readBuff;
 	char* tmpStr;
 
-	struct dirent *;
+	// struct dirent *;
 
 	
-	FILE *locFile = fopen(directory, "rb+");;
+	FILE *locFile = fopen(directory, "w+");;
 	DIR *locDir;
 
 	//Arguement check.
