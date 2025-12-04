@@ -21,8 +21,7 @@ int main(int argc, char const *argv[])//if a valid directory was inputted
 
 	// struct dirent *;
 
-	
-	FILE *locFile = fopen(directory, "w+");;
+	FILE *locFile = fopen(directory, "w+");
 	DIR *locDir;
 
 	//Arguement check.
@@ -32,6 +31,11 @@ int main(int argc, char const *argv[])//if a valid directory was inputted
 		return 1;
 	}
 	//see if the recomended spot exists
+	/*if (locFile == NULL)
+	{
+		printf("This file location could not be acessed…");
+		return 1;
+	}*/
 	if (locFile == NULL)
 	{
 		printf("This file location could not be acessed…");
