@@ -21,9 +21,10 @@ int main(int argc, char const *argv[])//if a valid directory was inputted
 
 	// struct dirent *;
 
-	FILE *locFile = fopen(directory, "w+");
+	FILE *locFile;
 	DIR *locDir;
 
+	locFile = fopen(directory, "w+");
 	//Arguement check.
 	if (argc > 1)
 	{
