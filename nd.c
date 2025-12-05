@@ -26,7 +26,7 @@ int main(int argc, char const *argv[])//if a valid directory was inputted
 
 	locFile = fopen(directory, "w+");
 	//Arguement check.
-	if (argc > 1)
+	if (argc > 2)
 	{
 		printf("too many arguements.");
 		return 1;
@@ -42,8 +42,8 @@ int main(int argc, char const *argv[])//if a valid directory was inputted
 		printf("This file location could not be acessed…");
 		return 1;
 	}
-
-	if ( strlen(argv[1])>0 )//if anything was inputed after "nd"
+	// strlen(argv[])
+	if ( argc > 0 )//if anything was inputed after "nd"
 	{
 		//just print loaded directory location
 		if (strcmp(argv[1], "-s") )
