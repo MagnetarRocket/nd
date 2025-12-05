@@ -15,7 +15,7 @@ char* directory = "/tmp/nd-location";
 int main(int argc, char const *argv[])//if a valid directory was inputted
 {
 
-	char* switchDir;
+	//char* switchDir;
 	void* readBuff = "";
 	char* tmpStr;
 
@@ -24,7 +24,7 @@ int main(int argc, char const *argv[])//if a valid directory was inputted
 	FILE *locFile;
 	DIR *locDir;
 
-	locFile = fopen(directory, "w+");
+	//locFile = fopen(directory, "w+");
 	//Arguement check.
 	if (argc > 2)
 	{
@@ -32,16 +32,12 @@ int main(int argc, char const *argv[])//if a valid directory was inputted
 		return 1;
 	}
 	//see if the recomended spot exists
-	/*if (locFile == NULL)
-	{
-		printf("This file location could not be acessed…");
-		return 1;
-	}*/
 	if (locFile == NULL)
 	{
 		printf("This file location could not be acessed…");
 		return 1;
 	}
+
 	// strlen(argv[])
 	if ( argc > 0 )//if anything was inputed after "nd"
 	{
