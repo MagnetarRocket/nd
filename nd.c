@@ -9,14 +9,14 @@
 //#include<stdarg.h>
 
 char default_directory = '~';
-char* directory ="/tmp/nd-location";
+char* directory = "/tmp/nd-location";
 	//^Start the default directories varible
 
 int main(int argc, char const *argv[])//if a valid directory was inputted
 {
 
 	char* switchDir;
-	char* readBuff;
+	void* readBuff = "";
 	char* tmpStr;
 
 	// struct dirent *;
@@ -64,12 +64,12 @@ int main(int argc, char const *argv[])//if a valid directory was inputted
 		else
 		{
 			
-			locDir = opendir(argv[1]);
+			locDir = opendir(argv[2]);
 			if (locDir)
 			{
-				tmpStr = strdup(argv[1]);
+				tmpStr = strdup(argv[2]);
 				//locFile = fopen(directory,"rw");
-				fprintf(locFile, "%s", argv[1]);
+				fprintf(locFile, "%s", argv[2]);
 			}
 			else
 			{
