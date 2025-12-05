@@ -46,7 +46,7 @@ int main(int argc, char const *argv[])//if a valid directory was inputted
 	if ( argc > 0 )//if anything was inputed after "nd"
 	{
 		//just print loaded directory location
-		if (strcmp(argv[1], "-s") )
+		if (strcmp(argv[2], "-s") ) //crash location Dec 4 2025
 		{
 			fgets(readBuff,225,locFile);
 			printf("%p", readBuff);
