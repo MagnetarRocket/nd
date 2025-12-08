@@ -10,34 +10,41 @@ char default_directory = '~';
 char* directory = "/tmp/nd-location";
 	//^Start the default directories varible
 //int bee = 0;
-FILE *WorkingFileLoc;
 
 int main(int argc, char const *argv[])//if a valid directory was inputted
 {
-	int argtc = 0;
+	FILE *WorkingFileLoc;
+	int argtc = argc - 1;
 
+
+	if ( (WorkingFileLoc = fopen(directory, "r") ) == NULL)
+        {
+			printf("File not acessable");
+            exit(1);
+        }
+	
     for(int bee = 0; bee < argc; bee++)
     {
         printf("%d %s \n", bee, argv[bee]);
     }
 
 
-    if (argc > 0 ) 
+    if (argc > 1 ) 
     {
         printf("There is a entry here");
         
-        if (argc > 1)
+        if (argc > 2)
         {
             printf("Too many arguements");
-            return 0;
+            return 1;
         }
         
-        else if (strcmp(argv[1], "-p") )
+        else if (strcmp(argv[2], "-p") )
         {
-            printf("%s\n", argv[1]);
+            printf("%s\n", argv[2]);
 
         }
-        else if (strcmp(argv[1], "-c")) 
+        else if (strcmp(argv[2], "-c")) 
         {
             
         }        
