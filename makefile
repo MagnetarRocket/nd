@@ -1,2 +1,2 @@
 nd: nd.c
-	cc nd.c -o nd
+	cc nd2.c -o nd

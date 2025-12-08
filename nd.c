@@ -15,7 +15,7 @@ char* directory = "/tmp/nd-location";
 int main(int argc, char const *argv[])//if a valid directory was inputted
 {
 
-	//char* switchDir;
+	char* switchDir;
 	void* readBuff = "";
 	char* tmpStr;
 
@@ -42,7 +42,7 @@ int main(int argc, char const *argv[])//if a valid directory was inputted
 	if ( argc > 0 )//if anything was inputed after "nd"
 	{
 		//just print loaded directory location
-		if (strcmp(argv[2], "-s") ) //crash location Dec 4 2025
+		if (strcmp(argv[1], "-s") ) //crash location Dec 4 2025
 		{
 			fgets(readBuff,225,locFile);
 			printf("%p", readBuff);
@@ -50,23 +50,26 @@ int main(int argc, char const *argv[])//if a valid directory was inputted
 		}
 
 		//overide with home default
-		else if (strcmp(argv[1], "-c") )
+		else if (strcmp(argv[1], "-c") ) //crash here too Dec 6 2025
 		{
-			tmpStr = strdup(directory);
+			//tmpStr = strdup(directory);
+			locFile = fopen(directory, "w");
 			fprintf(locFile, "%c", default_directory);
 		}
 		
 		//given user input
 		else
 		{
-			
+			//scanf("%s", switchDir);
 			locDir = opendir(argv[2]);
 			if (locDir)
 			{
-				tmpStr = strdup(argv[2]);
-				//locFile = fopen(directory,"rw");
+				directory = strdup(argv[1]);
+				locFile = fopen(directory,"w");
+				printf("%s", argv[2]);
 				fprintf(locFile, "%s", argv[2]);
 			}
+
 			else
 			{
 				printf("Invalid directory");
