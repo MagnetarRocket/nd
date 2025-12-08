@@ -14,7 +14,6 @@ char* directory = "/tmp/nd-location";
 int main(int argc, char const *argv[])//if a valid directory was inputted
 {
 	FILE *WorkingFileLoc;
-	int argtc = argc - 1;
 
 
 	if ( (WorkingFileLoc = fopen(directory, "r") ) == NULL)
