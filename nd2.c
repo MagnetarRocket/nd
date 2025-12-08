@@ -14,30 +14,38 @@ FILE *WorkingFileLoc;
 
 int main(int argc, char const *argv[])//if a valid directory was inputted
 {
-    
+	int argtc = 0;
 
-    if (argc > 0) 
-    {
-        for(int bee = 0; bee < argc; bee++)
+    for(int bee = 0; bee < argc; bee++)
     {
         printf("%d %s \n", bee, argv[bee]);
     }
+
+
+    if (argc > 0 ) 
+    {
         printf("There is a entry here");
         
         if (argc > 1)
         {
             printf("Too many arguements");
-            return 1;
+            return 0;
         }
-
-        if (strcmp(argv[1], "-c") ) 
+        
+        else if (strcmp(argv[1], "-p") )
         {
-            printf("\n");
+            printf("%s\n", argv[1]);
 
         }
+        else if (strcmp(argv[1], "-c")) 
+        {
+            
+        }        
+    }
+
+
 
         //return 0;
-    }
 
     else
     {
@@ -49,7 +57,7 @@ int main(int argc, char const *argv[])//if a valid directory was inputted
 
         //return 0;
     }
-    if(WorkingFileLoc == NULL)
+    if(WorkingFileLoc != NULL)
     {    
         fclose(WorkingFileLoc);
     }
