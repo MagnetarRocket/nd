@@ -47,12 +47,12 @@ int main(int argc, char const *argv[])//if a valid directory was inputted
             exit(1);
         }
 
-        
-
         //return 0;
     }
-        
-    fclose(WorkingFileLoc);
+    if(WorkingFileLoc == NULL)
+    {    
+        fclose(WorkingFileLoc);
+    }
     printf("flew over code block somehow");
     return(0);
 }
