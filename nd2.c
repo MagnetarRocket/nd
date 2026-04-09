@@ -14,15 +14,16 @@ char* directory = "/tmp/nd-location";
 int main(int argc, char const *argv[])//if a valid directory was inputted
 {
 	FILE *WorkingFileLoc;
+	char* temp_directory;
 
 
 	if ( (WorkingFileLoc = fopen(directory, "r") ) == NULL)
-        {
-			printf("File not acessable");
-            exit(1);
-        }
+    {
+		printf("File not acessable");
+        exit(1);
+    }
 	
-    for(int bee = 0; bee < argc; bee++)
+    for(int bee = 0; bee < argc; bee++) //debug, remove or find a way to have it give debugger-only output
     {
         printf("%d %s \n", bee, argv[bee]);
     }
@@ -30,7 +31,7 @@ int main(int argc, char const *argv[])//if a valid directory was inputted
 
     if (argc > 1 ) 
     {
-        printf("There is a entry here");
+        printf("There is a entry here\n");
         
         if (argc > 2)
         {
@@ -42,11 +43,19 @@ int main(int argc, char const *argv[])//if a valid directory was inputted
         {
             printf("%s\n", argv[2]);
 
+
+			return 0;
         }
         else if (strcmp(argv[2], "-c")) 
         {
             
+
+			return 0;
         }        
+		else 
+		{
+			temp_directory = argv[2];
+		}
     }
 
 
@@ -56,11 +65,6 @@ int main(int argc, char const *argv[])//if a valid directory was inputted
     else
     {
         printf("there is no entry here");
-        if ( (WorkingFileLoc = fopen(directory, "r") ) == NULL)
-        {
-            exit(1);
-        }
-
         //return 0;
     }
     if(WorkingFileLoc != NULL)
